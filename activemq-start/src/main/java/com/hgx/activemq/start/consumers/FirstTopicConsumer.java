@@ -5,7 +5,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 import java.io.IOException;
 
-public class SencodTopicConsumer {
+public class FirstTopicConsumer {
     private static final String url = "tcp://106.14.217.80:61616";
 
     public static void main(String[] args) throws JMSException, IOException {
