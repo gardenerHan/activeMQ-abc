@@ -5,6 +5,9 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 import java.io.IOException;
 
+/**
+ * 在事务开启的情况下，签收参数无所谓，事务提交成功则默认签收，如果不commit，则签收无效，消息会被重复消费到
+ */
 public class AcknowledgeTransactionQueueConsumer {
     private static final String url = "tcp://106.14.217.80:61616";
 
