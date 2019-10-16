@@ -6,7 +6,7 @@ import javax.jms.*;
 
 public class FirstQueueProvider {
 
-    private static final String url = "tcp://106.14.217.80:61616";
+    private static final String url = "tcp://localhost:61616";
 
     public static void main(String[] args) throws JMSException {
 

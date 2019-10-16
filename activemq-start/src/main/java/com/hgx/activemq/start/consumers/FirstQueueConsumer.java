@@ -6,7 +6,7 @@ import javax.jms.*;
 import java.io.IOException;
 
 public class FirstQueueConsumer {
-    private static final String url = "tcp://106.14.217.80:61616";
+    private static final String url = "tcp://localhost:61616";
 
     public static void main(String[] args) throws JMSException, IOException {
         //1.创建连接工厂，按照给定的URL地址，使用默认的用户和密码
