@@ -11,22 +11,28 @@ http://www.springframework.org/schema/context/spring-context.xsd
     <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
         <property name="connectionFactory">
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
-                <property name="brokerURL" value="tcp://106.14.217.80:61616"></property>
+                <property name="brokerURL" value="tcp://106.14.217.80:61616"/>
             </bean>
         </property>
-        <property name="maxConnections" value="100"></property>
+        <property name="maxConnections" value="100"/>
     </bean>
 
     <bean id="destinationQueue" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg index="0" value="spring-active-queue"></constructor-arg>
+        <constructor-arg index="0" value="spring-active-queue"/>
     </bean>
 
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
-        <property name="connectionFactory" ref="jmsFactory"></property>
-        <property name="defaultDestination" ref="destinationQueue"></property>
+        <property name="connectionFactory" ref="jmsFactory"/>
+        <property name="defaultDestination" ref="destinationQueue"/>
         <property name="messageConverter">
-            <bean class="org.springframework.jms.support.converter.SimpleMessageConverter"></bean>
+            <bean class="org.springframework.jms.support.converter.SimpleMessageConverter"/>
         </property>
+    </bean>
+
+    <bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="jmsFactory"/>
+        <property name="destination" ref="destinationQueue"/>
+        <property name="messageListener" ref="myMessageListener"/>
     </bean>
 
 
