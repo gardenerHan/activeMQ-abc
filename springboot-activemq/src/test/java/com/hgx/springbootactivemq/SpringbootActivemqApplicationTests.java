@@ -21,4 +21,8 @@ class SpringbootActivemqApplicationTests {
         queueProduce.produceMsg();
     }
 
+    @Test
+    public void testSendSch(){
+        queueProduce.produceMSgScheduled();
+    }
 }
