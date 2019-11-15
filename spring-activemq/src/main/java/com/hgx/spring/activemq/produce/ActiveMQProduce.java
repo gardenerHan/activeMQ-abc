@@ -20,6 +20,9 @@ public class ActiveMQProduce {
         activeMQProduce.jmsTemplate.send(session -> {
             return session.createTextMessage("-------spring activeMQ message--------");
         });
+
+        //消费
+//        String content = (String) activeMQProduce.jmsTemplate.receiveAndConvert();
         System.out.println("--------spring message send success-----------");
     }
 }
