@@ -1,6 +1,7 @@
 package com.hgx.springbootactivemq;
 
-import com.hgx.springbootactivemq.produce.QueueProduce;
+import com.hgx.activemq.SpringbootActivemqApplication;
+import com.hgx.activemq.produce.QueueProduce;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

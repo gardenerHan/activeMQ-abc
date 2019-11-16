@@ -1,4 +1,4 @@
-package com.hgx.springbootactivemq.produce;
+package com.hgx.activemq.produce;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;
@@ -24,7 +24,7 @@ public class QueueProduce {
     /**
      * 3秒一次
      */
-    @Scheduled(fixedDelay = 3000)
+//    @Scheduled(fixedDelay = 3000)
     public void produceMSgScheduled() {
 
         jmsMessagingTemplate.convertAndSend(queue, "produceMSgScheduled" + UUID.randomUUID().toString());

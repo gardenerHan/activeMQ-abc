@@ -1,4 +1,4 @@
-package com.hgx.springbootactivemq.config;
+package com.hgx.activemq.config;
 
 
 import org.apache.activemq.command.ActiveMQQueue;
