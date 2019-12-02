@@ -7,7 +7,9 @@ spring:
     user: admin
     password: admin
   jms:
-    pub-sub-domain: false   # false=Queue true=Topic
+    pub-sub-domain: true   # false=Queue true=Topic
 
 #自定义队列名称
 myQueue: boot-active-queue
+#自定义主题名
+myTopic: boot-active-Topic
