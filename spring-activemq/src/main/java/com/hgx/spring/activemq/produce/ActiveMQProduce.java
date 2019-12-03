@@ -6,8 +6,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.jms.TextMessage;
-
 @Component
 public class ActiveMQProduce {
 
@@ -21,8 +19,11 @@ public class ActiveMQProduce {
             return session.createTextMessage("-------spring activeMQ message--------");
         });
 
+        System.out.println("--------spring message send success-----------");
+
         //消费
 //        String content = (String) activeMQProduce.jmsTemplate.receiveAndConvert();
-        System.out.println("--------spring message send success-----------");
+//        System.out.println("消费：" + content);
+
     }
 }

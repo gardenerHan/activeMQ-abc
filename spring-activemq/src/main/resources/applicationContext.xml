@@ -8,6 +8,7 @@ http://www.springframework.org/schema/context/spring-context.xsd
 
     <context:component-scan base-package="com.hgx.spring.activemq"/>
 
+    <!--配置activeMQ连接信息-->
     <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
         <property name="connectionFactory">
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
@@ -17,24 +18,30 @@ http://www.springframework.org/schema/context/spring-context.xsd
         <property name="maxConnections" value="100"/>
     </bean>
 
+    <!--配置队列-->
     <bean id="destinationQueue" class="org.apache.activemq.command.ActiveMQQueue">
         <constructor-arg index="0" value="spring-active-queue"/>
     </bean>
 
-
+    <!--配置主题-->
     <bean id="destinationTopic" class="org.apache.activemq.command.ActiveMQTopic">
         <constructor-arg index="0" value="spring-active-topic"/>
     </bean>
 
 
+    <!--配置JmsTemplate信息-->
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!--配置连接工厂-->
         <property name="connectionFactory" ref="jmsFactory"/>
+        <!--配置目的地，是主题还是队列，目前配置是队列，要配置主题，只需要修改为上面配置的主题bean的id:destinationTopic即可-->
         <property name="defaultDestination" ref="destinationQueue"/>
+        <!--消息转换器-->
         <property name="messageConverter">
             <bean class="org.springframework.jms.support.converter.SimpleMessageConverter"/>
         </property>
     </bean>
 
+    <!--消息监听消费，手动消费，无需配置-->
     <bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="jmsFactory"/>
         <property name="destination" ref="destinationQueue"/>
