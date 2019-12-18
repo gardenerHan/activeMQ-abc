@@ -25,7 +25,7 @@ public class TopicProduce {
     /**
      * 3秒一次
      */
-    @Scheduled(fixedDelay = 3000)
+//    @Scheduled(fixedDelay = 3000)
     public void produceMSgScheduled() {
 
         jmsMessagingTemplate.convertAndSend(topic, "produceMSgScheduled topic" + UUID.randomUUID().toString());
